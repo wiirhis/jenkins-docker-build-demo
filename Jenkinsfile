@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Cloner le dépôt') {
       steps {
-        git 'https://github.com/wiirhis/jenkins-docker-build-demo'
+        git branch 'main', url: 'https://github.com/wiirhis/jenkins-docker-build-demo'
       }
     }
 
