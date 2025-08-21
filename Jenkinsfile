@@ -1,10 +1,17 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'docker:dind'
+      args '-v /var/run/docker.sock:/var/run/docker.sock'
+    }
+  }
 
   environment {
     IMAGE_NAME = "rhisland/jenkins-docker-demo"
     IMAGE_TAG  = "latest"
   }
+
+  stages {
     stage('Construire l’image Docker') {
       steps {
         script {
