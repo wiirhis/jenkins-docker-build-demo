@@ -5,14 +5,6 @@ pipeline {
     IMAGE_NAME = "rhisland/jenkins-docker-demo"
     IMAGE_TAG  = "latest"
   }
-
-  stages {
-    stage('Cloner le dépôt') {
-      steps {
-        git branch: 'main', url: 'https://github.com/wiirhis/jenkins-docker-build-demo'
-      }
-    }
-
     stage('Construire l’image Docker') {
       steps {
         script {
